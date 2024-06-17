@@ -21,24 +21,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @Operation(summary = "Home page")
-    @GetMapping("/")
-    public String index() {
-        return "index";
-    }
-
-    @Operation(summary = "API home page")
-    @GetMapping("/api")
-    public String apiHome() {
-        return "api";
-    }
-
-    @Operation(summary = "User API home page")
-    @GetMapping("/api/user")
-    public String apiUserHome() {
-        return "apiUser";
-    }
-
     @Operation(summary = "Register a new user", description = "Register a new user with username, email, and password")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "User registered successfully"),
@@ -67,17 +49,5 @@ public class UserController {
         } else {
             return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
         }
-    }
-
-    @Operation(summary = "Show register page")
-    @GetMapping("/register")
-    public String showRegisterPage() {
-        return "register";
-    }
-
-    @Operation(summary = "Show fetch page")
-    @GetMapping("/fetch")
-    public String showFetchPage() {
-        return "fetch";
     }
 }
